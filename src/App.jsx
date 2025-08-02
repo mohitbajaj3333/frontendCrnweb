@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const apiUrl = import.meta.env.VITE_API_URL;
+
+
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -15,17 +18,8 @@ const App = () => {
     setLoading(true);
 
     try {
-      // const response = await axios.post(
-        //     'https://apis.akshit.net/eciapi/17/district-court/case',
-        //     { "cnr": searchQuery },
-        //     {
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'ziaB8ExvjMEHTIK9twWxOCOIMnnhk7Z4',
-        //         }
-        //     }
-        // );
-      const response = await fetch('http://localhost:3001/api/case', {
+    
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
